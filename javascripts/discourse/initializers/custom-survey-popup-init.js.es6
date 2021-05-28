@@ -3,6 +3,7 @@ import WidgetGlue from "discourse/widgets/glue";
 import { getRegister } from "discourse-common/lib/get-owner";
 import { observes } from "discourse-common/utils/decorators";
 import { withPluginApi } from "discourse/lib/plugin-api";
+import { getOwner } from "discourse-common/lib/get-owner";
 
 function initializePolls(api) {
   debugger;
