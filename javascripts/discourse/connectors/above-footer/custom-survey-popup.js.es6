@@ -5,6 +5,7 @@ import { observes } from "discourse-common/utils/decorators";
 import { withPluginApi } from "discourse/lib/plugin-api";
 
 function initializePolls(api) {
+  debugger;
   const register = getRegister(api);
 
   api.modifyClass("controller:topic", {
