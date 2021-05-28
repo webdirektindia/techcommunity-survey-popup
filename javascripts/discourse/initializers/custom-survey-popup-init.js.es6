@@ -68,12 +68,13 @@ function initializePolls(api) {
     delete props.username_filters;
     delete props.filter;
     const topic = topicRoute.store.createRecord("topic", props);
-
-    const post = helper.getModel();
+    
+    //const post = helper.getModel();
+    const post = topic.postStream.posts[0];
     api.preventCloak(post.id);
     post.pollsChanged();
 
-    const polls = post.pollsObject || {};
+    const polls = post.polls || {};
     const votes = post.polls_votes || {};
 
     _interval = _interval || setInterval(rerender, 30000);
