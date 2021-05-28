@@ -125,14 +125,14 @@ function initializePolls(api) {
   
   debugger;
   let topic = getOwner(this).lookup("model:topic");
-  
-  let props = Object.assign({}, {'slug': 'test-topic-what-do-you-think-of-the-tech-forums' , 'id': 178});
-  delete props.username_filters;
-  delete props.filter;
-  topic = this.store.createRecord("topic", props);
 
   api.includePostAttributes("polls", "polls_votes");
   api.decorateWidget('header:after',helper => {
+    debugger;
+    let props = Object.assign({}, {'slug': 'test-topic-what-do-you-think-of-the-tech-forums' , 'id': 178});
+    delete props.username_filters;
+    delete props.filter;
+    const topic = this.store.createRecord("topic", props);
     attachPolls($('.custom-survey-popup'), helper);
   });
   api.decorateCooked(attachPolls, { onlyStream: true, id: "discourse-poll" });
