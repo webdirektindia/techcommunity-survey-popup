@@ -125,7 +125,7 @@ function initializePolls(api) {
   debugger;
   api.includePostAttributes("polls", "polls_votes");
   api.decorateWidget('header:after',helper => {
-    attachPolls($('.custom-survey-popup .poll'), helper);
+    attachPolls($('.custom-survey-popup'), helper);
   });
   api.decorateCooked(attachPolls, { onlyStream: true, id: "discourse-poll" });
   api.cleanupStream(cleanUpPolls);
