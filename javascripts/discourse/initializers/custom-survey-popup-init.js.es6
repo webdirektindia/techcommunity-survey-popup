@@ -74,7 +74,7 @@ function initializePolls(api) {
     api.preventCloak(post.id);
     post.pollsChanged();
 
-    const polls = post.polls || {};
+    const polls = post.pollsObject || {};
     const votes = post.polls_votes || {};
 
     _interval = _interval || setInterval(rerender, 30000);
