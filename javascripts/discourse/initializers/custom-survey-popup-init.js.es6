@@ -62,6 +62,12 @@ function initializePolls(api) {
     if (!$polls.length || !helper) {
       return;
     }
+    
+    const topicRoute = getOwner(this).lookup("route:topic");
+    let props = Object.assign({}, {'slug': 'test-topic-what-do-you-think-of-the-tech-forums' , 'id': 178});
+    delete props.username_filters;
+    delete props.filter;
+    const topic = topicRoute.store.createRecord("topic", props);
 
     const post = helper.getModel();
     api.preventCloak(post.id);
@@ -128,16 +134,12 @@ function initializePolls(api) {
   const topicRoute = getOwner(this).lookup("route:topic");
 
   api.includePostAttributes("polls", "polls_votes");
-/*  
-api.decorateWidget('header:after',helper => {
+
+  api.decorateWidget('header:after',helper => {
     debugger;
-    let props = Object.assign({}, {'slug': 'test-topic-what-do-you-think-of-the-tech-forums' , 'id': 178});
-    delete props.username_filters;
-    delete props.filter;
-    const topic = topicRoute.store.createRecord("topic", props);
     attachPolls($('.custom-survey-popup'), helper);
   });
-  */
+
   api.decorateCooked(attachPolls, { onlyStream: true, id: "discourse-poll" });
   api.cleanupStream(cleanUpPolls);
 }
