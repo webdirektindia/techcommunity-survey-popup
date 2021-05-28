@@ -56,6 +56,7 @@ function initializePolls(api) {
   });
 
   function attachPolls($elem, helper) {
+    debugger;
     const $polls = $(".poll", $elem);
     if (!$polls.length || !helper) {
       return;
