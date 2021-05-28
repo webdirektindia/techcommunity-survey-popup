@@ -123,6 +123,7 @@ function initializePolls(api) {
   }
   
   debugger;
+  let topic = getOwner(this).lookup("model:topic");
   api.includePostAttributes("polls", "polls_votes");
   api.decorateWidget('header:after',helper => {
     attachPolls($('.custom-survey-popup'), helper);
