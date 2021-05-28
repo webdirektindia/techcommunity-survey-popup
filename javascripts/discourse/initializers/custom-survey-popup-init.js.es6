@@ -143,6 +143,7 @@ export default {
   name: "techcommunity-survey-popup",
 
   initialize() {
+    debugger;
     withPluginApi("0.8.7", initializePolls);
     this;
     
