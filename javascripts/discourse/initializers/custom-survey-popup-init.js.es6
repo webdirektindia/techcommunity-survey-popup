@@ -123,7 +123,7 @@ function initializePolls(api) {
   }
 
   api.includePostAttributes("polls", "polls_votes");
-  api.decorateCooked(attachPolls, { onlyStream: true, id: "discourse-poll" });
+  api.decorateWidget('header:after',attachPolls);
   api.cleanupStream(cleanUpPolls);
 }
 
