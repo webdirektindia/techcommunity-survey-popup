@@ -125,7 +125,7 @@ function initializePolls(api) {
   
   debugger;
   let topic = getOwner(this).lookup("model:topic");
-  const topicRoute = getOwner(this).container.lookup("route:topic");
+  const topicRoute = getOwner(this).lookup("route:topic");
 
   api.includePostAttributes("polls", "polls_votes");
   api.decorateWidget('header:after',helper => {
