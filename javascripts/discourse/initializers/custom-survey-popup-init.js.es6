@@ -56,10 +56,10 @@ function initializePolls(api) {
     },
   });
 
-  function attachPolls($elem, helper) {
+  function attachPolls($elem) {
     debugger;
     const $polls = $(".poll", $elem);
-    if (!$polls.length || !helper) {
+    if (!$polls.length) {
       return;
     }
     
@@ -129,19 +129,9 @@ function initializePolls(api) {
     _glued.forEach((g) => g.cleanUp());
     _glued = [];
   }
-  
-  debugger;
-  let topic = getOwner(this).lookup("model:topic");
-  const topicRoute = getOwner(this).lookup("route:topic");
 
   api.includePostAttributes("polls", "polls_votes");
-
-  api.decorateWidget('header:after',helper => {
-    debugger;
-    attachPolls($('.custom-survey-popup'), helper);
-  });
-
-  api.decorateCooked(attachPolls, { onlyStream: true, id: "discourse-poll" });
+  attachPolls($('.custom-survey-popup'));
   api.cleanupStream(cleanUpPolls);
 }
 
